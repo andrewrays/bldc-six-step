@@ -2,6 +2,7 @@
 DEG120     = Simulink.Variant('ControlMethod == 1');
 DEG150     = Simulink.Variant('ControlMethod == 2');
 DEG180     = Simulink.Variant('ControlMethod == 3');
+DEG120_180 = Simulink.Variant('ControlMethod == 1 || ControlMethod == 3');
 ControlMethod = eval(get_param('bldcControl/Parameters/Control method', 'Value'));
 
 % Load truth tables
@@ -15,7 +16,7 @@ WYE_WOUND = Simulink.Variant('WoundType == 2');
 WoundType = eval(get_param('bldcControl/Parameters/Wound type', 'Value'));
 
 %% Model parameters
-Ts = 1e-6; % Sample time
+Ts = 5e-6; % Sample time
 
 %% Motor parameters
 motor.Us = 24;           % Supply Voltage, V
